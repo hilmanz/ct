@@ -1,0 +1,33 @@
+<div id="banner">
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+ 		  <img src="http://townsquare.co.id/sutos/html/contents/tenant/{$list.bannerImg}" />
+        </li>
+      </ul>
+    </div><!-- end .flexslider -->
+</div><!-- end #banner -->
+<div class="wrapper">
+	<div id="breadcumb" data-role="header" data-theme="f">
+		<h1><a href="tenant.php?pid={$list.categoryID}">{$categoryName.categoryName}</a> - {$list.title}</h1>
+		<a href="../html/index.php" data-icon="home" data-iconpos="notext" data-direction="reverse" class="iconHome" data-ajax="false">Home</a>
+	</div><!-- #breadcumb -->
+    <div class="searchTenant">
+        <div data-role="fieldcontain">
+        <form method="get" data-ajax="false">
+            <select name="floor" id="select-choice-5" data-native-menu="false" data-inline="true" >
+                {section name=j loop=$search}
+                    <option value="{$search[j].id}">{$search[j].title}</option>
+                {/section}
+            </select>
+            <script>document.getElementById('floor').value='{$floorSelected}';</script>
+            <input type="submit" value="GO" data-inline="true" >
+        </form>
+        </div>
+    </div><!-- end .searchTenant -->
+    <div class="content">
+        <img src="http://townsquare.co.id/sutos/html/contents/tenant/{$list.img}" />
+        <h1 class="tenant">{$list.title|stripslashes}</h1>
+        {$list.details|stripslashes}
+    </div><!-- end .content -->
+</div><!-- end .wrapper -->

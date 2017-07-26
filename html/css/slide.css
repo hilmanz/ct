@@ -1,0 +1,26 @@
+ #divTrigger{
+ 	position:absolute;
+	margin:25px 0 0 25px;
+ }
+ #divTrigger a:link,#divTrigger a:visited{
+	text-decoration: none; /* hilangkan garis bawah pada link */
+	margin:4px 2px; /* memberi jarak antar link */
+	padding: 4px 4px; /* menjadikan link seperti kotak */
+	background-color: #000000;
+	color: #ffffff;
+	-moz-border-radius: 4px;
+	filter:alpha(opacity=80);
+    opacity:0.80;
+ }
+ /* link yang dilalui oleh mouse dan element dengan class='selected' akan mempunyai efek yang sama */
+ #divTrigger a:hover,#divTrigger a:active,.selected{ 
+	background-color: #000000;
+	color: #FFF;
+ }
+ #divContent{
+	margin-top:4px;
+ }
+ #divContent div{ 
+	/* semua div di dalam element dengan id='divContent' akan di sembunyikan sementara */
+	display:none
+ }	

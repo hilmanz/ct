@@ -1,0 +1,75 @@
+
+<div class="calendar">
+    <img src="contents/banners/{$banner.file}" />
+</div>
+<div class="wrapper">
+    <h1 class="titlepage pageNav">
+        {$monthEvent}
+    </h1>
+    
+    <h1 class="titlepage pageNav">
+        <a class="blue3" href="?index=explore">Whats'up</a> |
+        <a href="whatsUp.php?pid={$rootName.id}">{$rootName.categoryName}</a> |
+        {$categoryName.categoryName}
+    </h1>
+
+
+    <div align="right" class="searchTenant">
+        
+        <form method="get">
+            <input type="hidden" name="content" value="{$categoryName.id}">
+            <input type="hidden" name="cid" value="{$rootName.id}">
+            <select name="month" id="month">
+                <option value="January">JANUARY</option>
+                <option value="February">FEBRUARY</option>
+                <option value="March">MARCH</option>
+                <option value="April">APRIL</option>
+                <option value="May">MAY</option>
+                <option value="June">JUNE</option>
+                <option value="JULY">JULY</option>
+                <option value="August">AUGUST</option>
+                <option value="September">SEPTEMBER</option>
+                <option value="October">OCTOBER</option>
+                <option value="November">NOVEMBER</option>
+                <option value="December">DECEMBER</option>
+            </select>
+            <script>document.getElementById('month').value='{$monthEvent}';</script>
+            <input type="submit" value="GO">
+        </form>
+    </div>
+
+    {if $list}
+    {section name=i loop=$list}
+    <div class="content">
+        <div class="rowArticle">
+            {if $list[i].detail}
+            <a class="alist" href="whatsUp.php?contentDetail={$list[i].id}&cid={$list[i].categoryID}">
+                {if $rootName.id eq '3'} <!--about us-->
+                <img class="imgLeft" src="contents/article/{$list[i].img}" />
+                {else}
+                <img class="imgW400 imgLeft" src="contents/article/{$list[i].img}" />
+                {/if}
+            </a>
+            {else}
+            	{if $rootName.id eq '3'} <!--about us-->
+				<img class="imgLeft" src="contents/article/{$list[i].img}" />
+				{else}
+				<img class="imgW400 imgLeft" src="contents/article/{$list[i].img}" />
+                {/if}
+
+            {/if}
+            <div class="text">
+                <h1 class="title">{$list[i].title|stripslashes}</h1>
+                <!--<p><i>Updated : {$list[i].posted_date|date_format:"%d-%m-%y"}</i></p>-->
+                <p>{$list[i].brief|stripslashes}</p>
+            </div>
+        </div>
+    </div>
+    {/section}
+    {else}
+    <div class="content">
+        <h1>No Updates On {$categoryName.categoryName} This Month</h1>
+    </div>
+    {/if}
+    <hr class="clear" />
+</div>

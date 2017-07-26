@@ -1,0 +1,103 @@
+<div id="banner">
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+            {if $banner.file}
+                <img src="http://townsquare.co.id/html/contents/banners/{$banner.file}" />
+            {else}
+                <img src="http://townsquare.co.id/html/contents/banners/{$rootBanner}" /> <!--kalo banner gak ada di database, select parentnya-->
+            {/if}
+        </li>
+      </ul>
+    </div><!-- end /flexslider -->
+</div><!-- end #banner -->
+<div class="wrapper">
+	<div id="breadcumb" data-role="header" data-theme="f">
+		<h1><a class="red" href="tenant.php?pid={$pid}">{$categoryName.categoryName}</a></h1>
+		<a href="../html/index2.php" data-icon="home" data-iconpos="notext" data-direction="reverse" class="iconHome" data-ajax="false">Home</a>
+	</div><!-- /header -->
+   {if $pid eq '8'}<!--explore-->
+    {elseif $pid eq '9'}<!--information-->
+    <div class="searchTenant">
+        <div data-role="fieldcontain">
+                <form method="get" data-ajax="false">
+                    <label for="select-choice-9" class="select">Search:</label>
+                        <select name="floor" id="select-choice-5" data-native-menu="false" data-inline="true" >
+                        <option>Choose options</option>
+                        {section name=j loop=$list}
+                        <option value="{$list[j].id}">{$list[j].title|stripslashes}</option>
+                        {/section}
+                    </select>
+                     <input type="submit" value="GO" data-inline="true" >
+                </form>
+        </div>
+    </div>
+   {else}
+    <div class="searchTenant">
+        <div data-role="fieldcontain">
+            <form method="get" data-ajax="false">
+                <select name="content" id="select-choice-5" data-native-menu="false" data-inline="true" >
+                    <option>Choose options</option>
+                    {section name=j loop=$searchDetail}
+                        <option value="{$searchDetail[j].id}">{$searchDetail[j].title|stripslashes}</option>
+                    {/section}
+                </select>
+                <input type="hidden" name="cid" value="{$categoryName.id}">
+                <script>document.getElementById('content').value='{$categoryName.id}';</script>
+                <input type="submit" value="GO" data-inline="true" >
+            </form>
+        </div>
+    </div>
+     {/if}
+    <div class="content">
+           {if $rootID eq '5'} <!--content explore-->
+            {section name=i loop=$list}
+                {if $list[i].categoryID eq '8'} <!--google map, find us-->
+                    <div class="w500L" style="margin-bottom:20px;">
+                        <iframe class="wikimap" src="http://wikimapia.org/#lat=-6.2916672&lon=106.799823&z=17&l=0&ifr=1&m=w" width="100%" height="200" frameborder="0"></iframe>
+                    </div>
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><img class="imgW220" src="http://townsquare.co.id/html/contents/tenant/{$list[i].img}" style="width:90%" /></div>
+                        <div class="ui-block-b">
+                                <h3>{$list[i].title|stripslashes}</h3>
+                                <p>{if $list[i].detail} {$list[i].detail|stripslashes}{/if}</p>
+                   <a id="callMobile" href="tel:02175920222" data-role="button" data-icon="star" style="width:140px; margin:10px 0;">CALL NOW</a>
+                        </div>	   
+                    </fieldset>
+                {else} <!--information-->
+                   <ul data-role="listview">
+                    {section name=i loop=$list}
+                    <li>
+                        <a href="tenant.php?floor={$list[i].id}" data-ajax="false">
+                           <div class="ui-li-thumb"> <img src="http://townsquare.co.id/html/contents/tenant/{$list[i].img}" /></div>
+                            <h3>{$list[i].title|stripslashes}</h3>
+                            <p>{if $list[i].brief} {$list[i].brief|stripslashes}{/if}</p>
+                        </a>
+                    </li>
+                    {/section}
+                  </ul>
+                {/if}
+            {/section}
+
+            {else}<!-- if content != explore -->
+		   <ul data-role="listview">
+            {section name=i loop=$list}
+			<li>
+                {if $list[i].detail|stripslashes}
+                <a href="tenant.php?content={$list[i].id}&cid={$list[i].categoryID}" data-ajax="false">
+                    <div class="ui-li-thumb"><img src="http://townsquare.co.id/html/contents/tenant/{$list[i].img}" /></div>
+                    <div class="entry">
+                    <h3>{$list[i].title|stripslashes}</h3>
+                    <p>{if $list[i].brief} {$list[i].brief|stripslashes} ...{/if}</p>
+                    </div>
+                </a>
+                {/if}
+            </li>
+            {/section}
+		  </ul>
+       {/if}
+    </div>
+    <div class="paging" align="right">
+       {$page}
+    </div>
+</div>

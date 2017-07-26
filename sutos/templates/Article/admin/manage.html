@@ -1,0 +1,82 @@
+
+<table class="addlist">
+    <tr class="head">
+        <td height="34"><a href="index.php">Dashboard</a> - <a href="?s=article">Article</a> - Manage</td>
+    </tr>
+    <tr>
+        <td height="34"><strong>ARTICLES</strong> -
+            <a href="?s=article&r=whatsUpSetting">[WHAT'S UP SETTING]</a> -
+        <a href="?s=article&amp;r=new">[New Article]</a></td>
+    </tr>
+    <tr>
+        <td valign="top">
+            <table class="list">
+                <tr>
+                    <td><form id="form2" name="form2" method="get" action="">
+                            Browse by Category :<br />
+                            <select name="categoryID" id="categoryID">
+
+                                {section name=j loop=$group}
+
+                                <option value="{$group[j].id}"> {$group[j].categoryName} </option>
+
+                                {/section}
+
+                            </select>
+                            <script>document.getElementById('categoryID').value='{$categoryID}';</script>
+                            <input type="submit" name="button" id="button" value="GO" />
+                            <input name="s" type="hidden" id="s" value="article" />
+                        </form>
+                    <strong>{$groupName|strtoupper}</strong> </td>
+                    <td colspan="6"><form id="form2" name="form2" method="get" action="">
+                            Browse by Article : <br />
+                            <select name="articleID" id="articleID">
+
+                                {section name=j loop=$article}
+
+                                <option value="{$article[j].id}">{$article[j].title|stripslashes}</option>
+
+                                {/section}
+
+                            </select>
+                            <script>document.getElementById('articleID').value='{$articleID}';</script>
+                            <input type="submit" name="button" id="button" value="GO" />
+                            <input name="s" type="hidden" id="s" value="article" />
+                    </form></td>
+                </tr>
+                <tr>
+                    <td width="30%"><strong>Title</strong></td>
+                    <td width="15%"><strong>Posted</strong></td>
+                    <td width="30%"><strong>Category</strong></td>
+                    <!--<td width="27%"><strong>Status</strong></td>-->
+                    <td align="center"><strong>Headline Image</strong></td>
+                    <td><strong>Status</strong></td>
+                    <td width="17%"><strong>Action</strong></td>
+                </tr>
+                {section name=i loop=$list}
+                <tr>
+                    <td>{$list[i].title|stripslashes}</td>
+                    <td>{$list[i].posted_date|date_format:"%d-%m-%Y"}</td>
+                    <td> {$list[i].categoryName}
+                    {if $list[i].events} <font color="green">({$list[i].events})</font> {/if} </td>
+                    <!--<td>Published</td>-->
+                    <td><img style="border:solid 1px #CCCCCC" src="../contents/article/{$list[i].img}" width="118" height="28" /> </td>
+                    <td> {if $list[i].status eq '1'} <a class="publish" href="?s=article&amp;r=setStatus&amp;id={$list[i].id}&amp;status=0"> Publish </a> {else} <a class="upblish" href="?s=article&amp;r=setStatus&amp;id={$list[i].id}&amp;status=1"> Unpublish </a> {/if} </td>
+                    <td>
+                        <a class="addSubPage" href="?s=article&amp;r=edit&amp;id={$list[i].id}&amp;categoryID={$list[i].categoryID}">Edit</a>&nbsp;
+                        {if $list[i].categoryID eq '4' || $list[i].categoryID eq '5'}
+                        
+                        {else}
+                        <a class="deletePage" href="?s=article&amp;r=delete&amp;id={$list[i].id}">Delete</a> 
+                        {/if}
+                    </td>
+                    </td>
+                </tr>
+                {/section}
+            </table>
+            {$page}
+            <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                <br />
+        </form>      </td>
+    </tr>
+</table>

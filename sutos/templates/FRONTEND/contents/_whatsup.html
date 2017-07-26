@@ -1,0 +1,102 @@
+
+<div class="calendar">   
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="FlashID" width="960" height="290" id="FlashID">
+    <param name="movie" value="flash/mei2011.swf" />
+        <param name="quality" value="high" />
+        <param name="wmode" value="opaque" />
+        <param name="swfversion" value="6.0.65.0" />
+        <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don�t want users to see the prompt. -->
+        <param name="expressinstall" value="js/expressInstall.swf" />
+        <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+              <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="flash/mei2011.swf" width="960" height="290">
+            <!--<![endif]-->
+            <param name="quality" value="high" />
+            <param name="wmode" value="opaque" />
+            <param name="swfversion" value="6.0.65.0" />
+            <param name="expressinstall" value="js/expressInstall.swf" />
+            <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+            <div>
+                <h4 align="center" style="color:#FFFFFF">Content on this page requires a newer version of Adobe Flash Player.</h4>
+                <p align="center"><a href="http://www.adobe.com/go/getflashplayer"><img src="images/get_flash_player.gif" alt="Get Adobe Flash player" width="112" height="33" /></a></p>
+            </div>
+            <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+</object>
+        </div>
+<div class="wrapper">
+    <h1 class="titlepage pageNav"><a class="blue3" href="?index=whatsup">Whats'up</a></h1>
+    <div align="right" class="searchTenant">
+        <form method="get">
+            <select name="pid">
+                {section name=i loop=$list}
+                    {if $list[i].pageID}
+                    <option value="{$list[i].pageID}">{$list[i].title|stripslashes}</option>
+                    {/if}
+                {/section}
+            </select>
+            <input type="submit" value="GO">
+        </form>
+    </div>
+    
+    <div class="content">
+        <table width="900" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td valign="top">
+                    <div class="w400L2">
+                        <div class="slide">
+                            <div id="divTrigger">
+                                {section name=j loop=$slide}
+                                <a href="javascript:;" onClick="openContent(this,'div{$slide[j].id}')" id="firstSlide">
+                                    {$slide[j].id}
+                                </a>
+                                {/section}
+                            </div>
+                            <!--
+                            <div id="divTrigger">
+                                <a href="javascript:;" onClick="openContent(this,'div1')" id="firstSlide">1</a>
+                                <a href="javascript:;" onClick="openContent(this,'div2')">2</a>
+                                <a href="javascript:;" onClick="openContent(this,'div3')">3</a>
+                                <a href="javascript:;" onClick="openContent(this,'div4')">4</a>
+                                <a href="javascript:;" onClick="openContent(this,'div5')">5</a>
+                            </div>
+                            -->
+
+                            
+                            <div id="divContent">
+                                {section name=i loop=$slide}
+                                <div id="div{$slide[i].id}">
+                                    {if $slide[i].parentID eq '0'}
+                                    <a href="whatsUp.php?pid={$slide[i].pageID}">
+                                        <img src="contents/static/{$slide[i].image}" />
+                                    </a>
+                                    {else}
+                                    <a href="whatsUp.php?content={$slide[i].pageID}&amp;cid={$slide[i].parentID}">
+                                        <img src="contents/static/{$slide[i].image}" />
+                                    </a>
+                                    {/if}
+                                </div>
+                                {/section}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </td>
+                <td valign="top">
+                    {section name=i loop=$list}
+                    <div class="w400RW">
+                        <a href="whatsUp.php?pid={$list[i].pageID}">
+                            <img class="imgW400" src="contents/static/{$list[i].image}" />
+                        </a>
+                        <!--<p>{$list[i].title}</p>-->
+                        <p>{$list[i].brief}</p>
+                        <!--<p><i>Updated : {$list[i].updated|date_format:"%d-%m-%Y"}</i></p>-->
+                    </div>
+                    {/section}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr class="clear" />
+</div>

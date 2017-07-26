@@ -1,0 +1,60 @@
+
+<table class="addlist">
+    <tr class="head">
+        <td height="34"><a href="index.php">Dashboard</a> - <a href="?s=contact">Contact</a> - Manage</td>
+    </tr>
+    <tr>
+        <td height="34"><strong>CONTACT</strong> -
+                        <a href="?s=contact&amp;r=manageSubject">[Manage Subject]</a></td>
+    </tr>
+    <tr>
+        <td>
+           <table class="list">
+                            <tr>
+                            <td colspan="2">
+                                <form id="form2" name="form2" method="get" action="">
+                                    Subject:<br>
+                                    <select name="categoryID" id="categoryID">
+                                        {section name=j loop=$category}
+                                        <option value="{$category[j].id}">
+                                            {$category[j].subject}
+                                        </option>
+                                        {/section}
+                                    </select>
+                                    <script>document.getElementById('categoryID').value='{$categoryById.id}';</script>
+
+                                    <input type="submit" name="button" id="button" value="GO" />
+                                    <input name="s" type="hidden" id="s" value="contact" />
+                                </form>
+                                <strong>{$groupName|strtoupper}</strong>
+                            </td>
+                            <tr>
+                                <td><strong>Recipient</strong></td>
+                                <td><strong>Action</strong></td>
+                            </tr>
+                            {section name=i loop=$list}
+                            <tr>
+                                <td>{$list[i].staff_name}, ({$list[i].staff_email})</td>
+                                <td align="center">
+                                    <a class="addSubPage" href="?s=contact&amp;r=inbox&amp;id={$list[i].id}&amp;categoryID={$list[i].idCategory}">
+                                        Inbox
+                                    </a>&nbsp;
+                                    <a class="addSubPage" href="?s=contact&amp;r=edit&amp;id={$list[i].id}&amp;categoryID={$list[i].idCategory}">
+                                        Edit
+                                    </a>&nbsp;
+                                    
+                                    <a class="deletePage" href="?s=contact&amp;r=delete&amp;id={$list[i].id}&amp;categoryID={$list[i].idCategory}"
+                                    onclick="return confirm('All message assign to {$list[i].staff_name} will be deleted. Are you sure ?')">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            {/section}
+                        </table>
+                        {$page}
+                        <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                            <br />
+                        </form>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,35 @@
+
+Thank you for your purchase.
+Since you have chosen the manual payment option, you must confirm your payment before we can process your order.
+
+Your Order Details :
+      
+{$OrderID}
+{$rs.name}
+{$rs.email}
+{$rs.paymentType}
+
+
+------------------------------------------------------------------------------------
+{section name=i loop=$list}
+{$list[i].Product_Code} - {$list[i].Title|stripslashes|htmlentities} {$list[i].colorName} {$list[i].sizeName} {$list[i].description|stripslashes|htmlentities} x {$list[i].amount} IDR.{$list[i].Price_IDR*$list[i].amount|number_format}
+{/section}
+------------------------------------------------------------------------------------
+SHIPPING : IDR. {$SHIPPING_COST|number_format} 
+
+Please transfer the sum of IDR. {$TOTAL_PRICE|number_format} to :
+
+Mandiri
+PT JATYA KALYANA ADHIKARDDHI
+1010005917990
+
+BCA
+PT JATYA KALYANA ADHIKARDDHI
+1783035131
+
+
+
+Confirm your payment by sms at 085710034486 or fill in our online form at http://www.shop-picnic.com/customer.php?check=transaction&do=confirm&transID={$transactionID}
+
+Regards,
+Picnic Shop

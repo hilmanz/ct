@@ -1,0 +1,93 @@
+/* --------------------------Dropdown Menu style START!!-------------------------*/
+ul.dropmenu ul{display:none}
+ul.dropmenu li:hover>ul{display:block}
+ul.dropmenu ul{position: absolute;left:-1px;top:98%;}
+ul.dropmenu ul ul{position: absolute;left:185px;top:0;}
+ul.dropmenu,ul.dropmenu ul {
+	margin:0px;
+	list-style:none;
+	padding:0;
+	border-bottom:none;
+/*	-moz-border-radius:0 0 10px 10px;*/
+}
+ul.dropmenu ul {
+	border:solid 1px #6699cc;
+	margin:1px 0 0 0;
+	border-right:1px solid #6699cc;
+	border-bottom:none;
+	background-color:#6699cc;
+}
+ul.dropmenu ul ul {
+	margin:-1px 0 0 7px;
+}
+ul.dropmenu table {border-collapse:collapse}ul.dropmenu {
+	display:block;
+	zoom:1;
+	float: left;
+}
+ul.dropmenu li{
+	display:block;
+	margin:0;
+	font-size:0px;
+}
+ul.dropmenu a:active, ul.dropmenu a:focus {
+outline-style:none;
+}
+ul.dropmenu a, ul.dropmenu li.dis a:hover{
+	display:block;
+	vertical-align:middle;
+	text-align:left;
+	text-decoration:none;
+	_padding-left:0;
+	font:11px Arial;
+	color: #FFFCF2;
+	text-decoration:none;
+	cursor:hand;
+}
+ul.dropmenu li {
+	float:left;
+}
+ul.dropmenu ul li {
+	float:none;
+}
+ul.dropmenu ul a,ul.dropmenu table td a{
+	text-align:left;
+	white-space:nowrap;
+	padding:5px;
+	width:180px;
+}
+ul.dropmenu li:hover{
+	position:relative;
+}
+ul.dropmenu ul li:hover a:hover,ul.dropmenu table td a:hover{
+	background-color:#BABABA;
+	font:11px Arial;
+	color: #000000;
+	text-decoration:none;
+}
+ul.dropmenu li a:hover{
+	position:relative;
+	font:11px Arial;
+	color: #ffffff;
+	text-decoration:none;
+}
+ul.dropmenu li.dis a {
+	color: #AAAAAA !important;
+}
+ul.dropmenu a:hover ul,ul.dropmenu a:hover a:hover ul,ul.dropmenu a:hover a:hover a:hover ul{display:block}
+ul.dropmenu a:hover ul ul,ul.dropmenu a:hover a:hover ul ul{display:none}
+
+/*
+--------------------------color style-------------------*/
+ul.whatsupMenu a,ul.whatsupMenu table td a  {
+	background-color:#8aaed4;
+	border-bottom:solid 1px #6699cc;
+}
+ul.exploreMenu a,ul.exploreMenu table td a  {
+	background-color:#5e82a5;
+	border-bottom:solid 1px #6699cc;
+}
+ul.lifestyleMenu a,ul.lifestyleMenu table td a{
+	background-color:#e0911b;
+	border-bottom:solid 1px #825411;
+}

@@ -1,0 +1,72 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist">
+    <tr>
+        <td><a href="index.php">Dashboard</a> - Statistic</td>
+    </tr>
+</table>
+<br /><br />
+<form action="?s=products&r=insert" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    <table border="0" cellspacing="0" cellpadding="5" class="zebra list">
+       
+        <tr class="head">
+            <td width="100" class="head"><strong>Title</strong></td>
+            <td width="200" class="head"><strong>Description</strong></td>
+            <!--
+            <td width="50" class="head"><div align="center"><strong>Stock</strong></div></td>
+            <td width="100" class="head"><div align="center"><strong>Price IDR</strong></div></td>
+            <td width="80" class="head"><div align="center"><strong>Price USD</strong></div></td>
+            <td width="50" class="head"><div align="center"><strong>Size</strong></div></td>
+            <td width="80" class="head"><div align="center"><strong>Is Sale</strong></div></td>
+            <td class="head"><div align="center"><strong>Discount</strong></div></td>
+            <td class="head"><div align="center"><strong>Image</strong></div></td>
+            -->
+            <td class="head">
+                <div align="center">
+                    <strong>
+                        <a href="index.php?{$url_sort}">Hits</a>
+                    </strong>
+                </div>
+            </td>
+            <!--<td width="60" class="head"><strong>PROCESS</strong></td>-->
+        </tr>
+        {section name=i loop=$list}
+        <tr>
+            <td width="300px">{$list[i].Title}</td>
+            <td width="600px">{$list[i].Description}</td>
+            <!--
+            <td><div align="center">{$list[i].Stock}</div></td>
+            <td><div align="center">{$list[i].Price_IDR}</div></td>
+            <td><div align="center">{$list[i].Price_USD}</div></td>
+            <td><div align="center">{$list[i].Size}</div></td>
+            <td><div align="center">{if $list[i].isSale eq '0'}No{else}Yes{/if}</div></td>
+            <td><div align="center">{$list[i].discount} %</div></td>
+            <td><div align="center"><a href="?s=products&r=images&id={$list[i].id}">{if $list[i].image}<img src="../contents/products/thumb_{$list[i].image}" border="0"/>{else}Add Image{/if}</a></div></td>
+            -->
+            <!--update counter by link 05-01-10_15:20PM -->
+            <td>
+                <div align="center">
+                    {if $list[i].hits}
+                        {$list[i].hits}
+                    {else}
+                        0
+                    {/if}
+                </div>
+            </td>
+            <!--end counter-->
+
+            <!--
+            <td>
+                <a class="addSubPage" href="?s=products&r=updatePage&id={$list[i].id}">
+                    Edit
+                </a>
+                <a class="deletePage" href="?s=products&r=delete&id={$list[i].id}" onclick="return confirm('Are you sure want to delete Product Code : {$list[i].Product_Code} ?')">
+                    Delete
+                </a>
+            </td>-->
+        </tr>
+        {/section}
+        <tr>
+            <td colspan="10" align="center"> {$paging} </td>
+        </tr>
+    </table>
+</form>
+

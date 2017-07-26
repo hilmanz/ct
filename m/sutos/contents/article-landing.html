@@ -1,0 +1,117 @@
+<div class="wrapper">
+	<div id="breadcumb" data-role="header" data-theme="f">
+		<h1><a class="red" href="?index=whatsup" data-ajax="false">Whats'up</a> | {$categoryName.categoryName}</h1>
+		<a href="../html/index.php" data-icon="home" data-iconpos="notext" data-direction="reverse" class="iconHome" data-ajax="false">Home</a>
+	</div><!-- #breadcumb -->
+    <div class="searchTenant">
+        <div data-role="fieldcontain">
+        {if $categoryName.id eq '1'} <!--events-->
+            <form method="get" data-ajax="false">
+                <select name="events" id="select-choice-5" data-inline="true" >
+                    <option value="January">JANUARY</option>
+                    <option value="February">FEBRUARY</option>
+                    <option value="March">MARCH</option>
+                    <option value="April">APRIL</option>
+                    <option value="May">MAY</option>
+                    <option value="June">JUNE</option>
+                    <option value="JULY">JULY</option>
+                    <option value="August">AUGUST</option>
+                    <option value="September">SEPTEMBER</option>
+                    <option value="October">OCTOBER</option>
+                    <option value="November">NOVEMBER</option>
+                    <option value="December">DECEMBER</option>
+                </select>
+                <input type="submit" value="GO" data-inline="true"  data-ajax="false">
+            </form>
+        {else}
+            <form method="get" data-ajax="false">
+                <select name="content" id="select-choice-5" data-native-menu="false" data-inline="true" >
+                    {section name=i loop=$list}
+                        {if $list[i].detail}
+                        <option value="{$list[i].child}">{$list[i].title|stripslashes}</option>
+                        {/if}
+                    {/section}
+                </select>
+                <input type="hidden" name="cid" value="{$categoryName.id}">
+                <input type="submit" value="GO" data-inline="true"  data-ajax="false">
+            </form>
+        {/if}
+        </div>
+    </div><!-- end .searchTenant -->
+    <div id="calendarEvent">
+  	  <div data-role="collapsible" data-iconpos="right" id="viewMonth">
+			<h3>View Event This Month</h3>
+            <ul data-role="listview" data-theme="d" data-divider-theme="d">
+                <li data-role="list-divider">02 - 04 November 2012</li>
+                <li>
+                        <h3>Magnum Gold Roadshow</h3>
+                        <p>Buat para pecinta Magnum, jangan lewatkan sensasi baru Magnum Gold di acara "Magnum Gold Roadshow". Come and get the GOLD!</p>
+                </li>
+                <li data-role="list-divider">07 November</li>
+                <li>
+                        <h3>TOWNSQUARE LIVE " with Guest Star NIDJI</h3>
+                        <p>Para NIDJIHOLIC silahkan bersiap-siap! Karena NIDJI bakalan hadir di acara @townsquarelive di Atrium Sutos!! It's FREE!! Don't miss it!!</p>
+                </li>
+                <li data-role="list-divider">11 November</li>
+                <li>
+                        <h3>SUNDAY MARKET "HippieLand"</h3>
+                        <p>Sunday Market "Hippieland", the biggest conceptual flea market in town! Sunday, November 11th 2012 at Atrium SUTOS, 12PM-12AM (free entry). Music Stage:  L'Alphalpha, Stars & Rabbit, Porn Ikebana, Taman Nada, Senandung Sore, Britta Nordica, General Supply DJ's.</p>
+                </li>
+                <li data-role="list-divider">15 - 18 November 2012</li>
+                <li>
+                        <h3>Honda</h3>
+                 </li>
+            </ul>
+	  </div><!-- End #viewMonth -->
+    </div><!-- End #calendarEvent -->
+    <div class="content">
+        
+		<ul data-role="listview">
+        {if $list}
+        {section name=i loop=$list}
+        <li>
+            {if $list[i].categoryID eq '1' } <!--events-->
+            <a href="whatsUp.php?contentDetail={$list[i].id}&cid={$list[i].categoryID}" data-ajax="false">
+                <div class="ui-li-thumb"><img src="http://townsquare.co.id/sutos/html/contents/article/{$list[i].img}" /></div>
+                <div class="entry">
+                <h3>{$list[i].title|stripslashes}</h3>
+                <p>{if $list[i].brief} {$list[i].brief|stripslashes} ...{/if}</p>
+                </div>
+            </a>
+            {elseif $list[i].detail|stripslashes} <!--all content detail-->
+            <a href="whatsUp.php?content={if $list[i].child}{$list[i].child}{else}{$list[i].categoryID}{/if}&cid={$list[i].categoryID}" data-ajax="false">
+            
+                {if $list[i].categoryID eq '3'} <!--about us-->
+                <div class="ui-li-thumb"><img src="http://townsquare.co.id/sutos/contents/article/{$list[i].img}" /></div>
+                {else}
+                <div class="ui-li-thumb"><img src="http://townsquare.co.id/sutos/html/contents/article/{$list[i].img}" /></div>
+                {/if}
+                <div class="entry">
+                <h3>{$list[i].title|stripslashes}</h3>
+                <p>{if $list[i].brief} {$list[i].brief|stripslashes} ...{/if}</p>
+                </div>
+            </a>
+            {else}
+                {if $list[i].categoryID eq '4' || $list[i].categoryID eq '5'}<!--club n offers-->
+                    <div style="position:relative;">
+                        <img src="http://townsquare.co.id/sutos/html/contents/article/{$photoTagged}" name="imageid" border="0" class="annotated" id="imageid" />
+                    </div>
+                {else}
+                <img src="http://townsquare.co.id/sutos/html/contents/article/{$list[i].img}" />
+                {/if}
+                
+            {/if}
+        </li>
+        {/section}
+        {else}
+        	<li>
+            {if $categoryName.categoryName eq 'Updates'}
+            <h1>No Updates This Month</h1>
+            {else}
+            <h1>No Updates On {$categoryName.categoryName} This Month </h1>
+            {/if}
+            </li>
+        {/if}
+		</ul>
+    </div><!-- end .content -->
+</div><!-- end .wrapper -->

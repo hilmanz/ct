@@ -1,0 +1,100 @@
+
+<div id="dashboardHead">
+    <div id="webname">
+        <h1>SURABAYA TOWNSQUARE</h1>
+        <h2>www.townsquare.co.id</h2>
+    </div>
+    <!--  <div id="weblogo"> <a href="#"><img src="images/logoklien.gif" /></a> </div>-->
+</div>
+
+
+
+<div id="recentActivity">
+    <table border="0" cellpadding="5" cellspacing="0" width="100%" class="list">
+        <tbody>
+            <tr>
+                <td colspan="3"><h2> Recent Activity </h2><!--<a href="?s=admin&amp;r=activities">ALL ACTIVITES</a> --></td>
+            </tr>
+            <tr class="head">
+                <td width="27%"><strong>Time<br>
+                </strong></td>
+                <td valign="top" width="56%"><strong>Activity</strong></td>
+                <td valign="top" width="17%"><strong>Action By</strong></td>
+            </tr>
+            {section name=i loop=$logs}
+            <tr>
+                <td>{$logs[i].record_time}</td>
+                <td><a href="{$logs[i].url}">{$logs[i].activity|stripslashes}</a></td>
+                <td>{$logs[i].username}</td>
+            </tr>
+            {/section}
+        </tbody>
+    </table>
+    <div id="nextPage">
+        <a href="?s=admin&r=activities"> See More</a>
+    </div>
+</div>
+
+
+<div id="dashboardRight">
+    <!-- sementara di off 25-03-2010, LINK
+    <div id="statistic">
+        <table class="list" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td colspan="2"><h2>Statistic</h2></td>
+            </tr>
+            <tr class="head">
+                <td colspan="2">Your Web Statistic</td>
+            </tr>
+            
+            <tr>
+                <td>Total Pages</td>
+                <td>24 pages</td>
+            </tr>
+            <tr>
+                <td>Total Posts</td>
+                <td>401 posts</td>
+            </tr>
+            <tr>
+                <td>Most View Page</td>
+                <td>...</td>
+            </tr>
+            
+            <tr>
+                <td><a href="index.php?s=products">Total Products</a></td>
+                <td>{$totalProduct}</td>
+            </tr>
+            <tr>
+                <td>Zero Stock Products</td>
+                <td>{$zeroStock}</td>
+            </tr>
+            <tr>
+                <td>Total Pending Payments</td>
+                <td>{$pendingPayments}</td>
+            </tr>
+            <tr>
+                <td>Total Pending Deliveries</td>
+                <td>{$pendingDelivery}</td>
+            </tr>
+            <tr>
+                <td>Total Paid This Month</td>
+                <td>Rp. {$paidThisMonth|number_format}</td>
+            </tr>
+            <tr>
+                <td>Total Orders To Date</td>
+                <td>Rp. {$totalOrder|number_format}</td>
+            </tr>
+            
+        </table>
+    </div>
+    
+    
+    <div id="iconDash">
+        <a class="newArticleBig" href="?s=article">Create New Article</a>
+        <a class="manageUser" href="?s=admin">Administrative Settings</a>
+        <a class="showPages " href="?s=page">Show Pages</a>
+        <a class="downloadManual" href="#">Download User Manual</a>
+        <a class="contactSupport" href="#">Contact Support</a>
+    </div>
+    -->
+</div>

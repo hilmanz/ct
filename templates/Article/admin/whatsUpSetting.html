@@ -1,0 +1,283 @@
+<strong>WHAT'S UP SETTING</strong><br>
+<br>
+<table class="addlist" width="100%" border="0" cellpadding="5" cellspacing="0">
+    <tr class="head">
+        <td height="33"><strong>HEADLINE 1</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <td width="132"><strong>Title</strong></td>
+                        <td width="425"><input name="title" type="text" id="title" value="{$box1.title|stripslashes}" size="50"></td>
+                    </tr>
+                    <tr>
+                        <td valign="top"><strong>Small Brief</strong></td>
+                        <td><textarea name="brief" cols="50" rows="2" id="brief">{$box1.brief|stripslashes}</textarea></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$box1.image}" width="200">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 394px, height = 94px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td ><strong>Link to</strong></td>
+                        <td><select name="pageID" id="pageID">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID').value="{$box1.pageID}";</script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="updateHeadline">
+                        <input name="box" type="hidden" id="box" value="1"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+<br>
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="addlist">
+    <tr class="head">
+        <td class="" height="33"><strong>HEADLINE 2</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+
+                    <tr>
+                        <td width="132" ><strong>Title</strong></td>
+                        <td width="425">
+                            <input name="title" type="text" id="title" value="{$box2.title|stripslashes}" size="50"></td>
+                    </tr>
+                    <tr>
+                        <td  valign="top"><strong>Small Brief</strong></td>
+                        <td>
+                            <textarea name="brief" cols="50" rows="2">{$box2.brief|stripslashes}</textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$box2.image}" width="200">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 394px, height = 94px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Link to</strong></td>
+                        <td>
+                            <select name="pageID" id="pageID2">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID2').value="{$box2.pageID}";</script>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="updateHeadline">
+                        <input name="box" type="hidden" id="box" value="2"></td>
+                    </tr>
+                </table>
+        </form></td>
+    </tr>
+</table>
+
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="addlist">
+    <tr class="head">
+        <td height="33"><strong>HEADLINE 3</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+
+                    <tr>
+                        <td width="132"><strong>Title</strong></td>
+                        <td width="425"><input name="title" type="text" id="title" value="{$box3.title|stripslashes}" size="50"></td>
+                    </tr>
+                    <tr>
+                        <td  valign="top"><strong>Small Brief</strong></td>
+                        <td>
+                            <textarea name="brief" cols="50" rows="2">{$box3.brief|stripslashes}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$box3.image}" width="200">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 394px, height = 94px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Link to</strong></td>
+                        <td>
+                            <select name="pageID" id="pageID3">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID3').value="{$box3.pageID}";</script>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="updateHeadline">
+                            <input name="box" type="hidden" id="box" value="3">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="addlist">
+    <tr class="head">
+        <td height="33"><strong>HEADLINE 4</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+
+                    <tr>
+                        <td width="132"><strong>Title</strong></td>
+                        <td width="425"><input name="title" type="text" id="title" value="{$box4.title|stripslashes}" size="50"></td>
+                    </tr>
+                    <tr>
+                        <td  valign="top"><strong>Small Brief</strong></td>
+                        <td>
+                            <textarea name="brief" cols="50" rows="2">{$box4.brief|stripslashes}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$box4.image}" width="200">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 394px, height = 94px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><strong>Link to</strong></td>
+                        <td>
+                            <select name="pageID" id="pageID4">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID4').value="{$box4.pageID}";</script>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="updateHeadline">
+                            <input name="box" type="hidden" id="box" value="4">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>

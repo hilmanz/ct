@@ -1,0 +1,27 @@
+
+<div class="banner">
+    <img src="contents/tenant/{$list.bannerImg}" />
+</div>
+<div class="wrapper">
+    <h1 class="titlepage pageNav">
+        <a href="tenant.php?pid={$list.categoryID}">{$categoryName.categoryName}</a> - {$list.title}
+    </h1>
+    <div align="right" class="searchTenant">
+        <form method="get">
+            <select name="floor">
+                {section name=j loop=$search}
+                    <option value="{$search[j].id}">{$search[j].title}</option>
+                {/section}
+            </select>
+            <input type="submit" value="GO">
+        </form>
+    </div>
+    <div class="content">
+            <img src="contents/tenant/{$list.img}" width="900" />
+            <h1 class="tenant">{$list.title|stripslashes}</h1>
+<!--            <p>{$list.brief}</p>-->
+            <br>
+            <p>{$list.details|stripslashes}</p>
+    </div>
+    <hr class="clear" />
+</div>

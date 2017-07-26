@@ -1,0 +1,83 @@
+{literal}
+<script type="text/javascript">
+function alertselected(selectobj){
+    var x = document.getElementById("subject").value;
+ //alert(x)
+ return x;
+}
+</script>
+{/literal}
+<div id="banner">
+    <div class="flexslider">
+      <ul class="slides">
+             <li><img src="http://townsquare.co.id/sutos/html/contents/banners/{$banner.file}" /></li>
+      </ul>
+    </div><!-- end .flexslider -->
+</div><!-- end #banner -->
+<div class="wrapper">
+	<div id="breadcumb" data-role="header" data-theme="f">
+		<h1><a href="?index=git">Get In Touch</a></h1>
+		<a href="../html/index.php" data-icon="home" data-iconpos="notext" data-direction="reverse" class="iconHome" data-ajax="false">Home</a>
+	</div><!-- #breadcumb -->
+    <div class="content">
+          <form id="contactForm" action="contact.php?do=send" method="post" class="formpage" data-ajax="false">
+                    <div data-role="fieldcontain">
+                     <label for="name-e">Name:</label>
+                     <input type="text" id="name-e" name="name" size="30" />
+                    </div>
+                    <div data-role="fieldcontain">
+                     <label for="name-e">Phone:</label>
+                     <input type="text" id="name-e" name="phone" size="30" />
+                    </div>
+                    <div data-role="fieldcontain">
+                     <label for="name-e">Email:</label>
+                     <input type="text" id="name-e" name="email" size="30" />
+                    </div>
+                    <div data-role="fieldcontain">
+                     <label for="name-e">Address:</label>
+                     <textarea id="name-e" name="address" rows="2" cols="30"></textarea>
+                    </div>
+                    <div data-role="fieldcontain">
+                     <label for="name-e">Subject:</label>
+                        <select  name="subject" onChange="alertselected(this)"> id="select-choice-e">
+                            {section name=i loop=$category}
+                            <option value="{$category[i].id}">{$category[i].subject}</option>
+                            {/section}
+                        </select>
+                    </div>
+                    <div data-role="fieldcontain">
+                     <label for="name-e">Comments:</label>
+                     <textarea id="name-e" name="message" rows="2" cols="30"></textarea>
+                    </div>
+                    <div data-role="fieldcontain">
+                       <input type="submit" value="Submit" class="submitContact" />
+                    </div>
+                    {if $msg}
+                    <div data-role="fieldcontain">
+                        <font style="color:red">{$msg}</font>
+                    </div>
+                    {/if}
+        </form>
+        <fieldset class="ui-grid-a" style="margin:30px 0 0 0;" id="textContact">
+            <div class="ui-block-a"><img class="imgW220" src="images/git_img.jpg" style="width:90%" /></div>
+            <div class="ui-block-b">
+              	  <h3>PT GRAHA MEGARIA SURABAYA</h3>
+                   Townsquare Surabaya 2nd Floor<br />
+                        Jl. Adityawarman No.55<br />
+                        Surabaya - 60242<br />
+                        Telephone : (62-31) 561 0222 <br />
+                    Fax : (62-31) 653 0202</p>
+                   <a id="callMobile" href="tel:031561 0222" data-role="button" data-icon="star" style="width:140px; margin:10px 0;">CALL NOW</a>
+            </div>	   
+        </fieldset>
+    </div>
+</div>
+
+{literal}
+<script>
+    function getStaff(param){
+        var staff = document.getElementById("staff").value;
+        alert(staff);
+    }
+</script>
+{/literal}

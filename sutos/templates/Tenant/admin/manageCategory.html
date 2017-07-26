@@ -1,0 +1,55 @@
+
+<table class="addlist">
+    <tr class="head">
+        <td height="34"><a href="index.php">Dashboard</a> - <a href="?s=pages">Tenant</a> - 
+        <a href="?s=pages&r=manageCategory"> Manage Category </a></td>
+    </tr>
+    <tr>
+        <td height="34"><a href="index.php"><strong>TENANT</strong> - <a href="?s=pages&amp;r=newCategory">[New Category]</a></td>
+    </tr>
+    <tr>
+        <td>
+             <table class="list">
+                            <tr>
+                                <td colspan="2">
+                                    <form id="form2" name="form2" method="get" action="">
+                                        Browse by Root Category :
+                                        <select name="categoryID" id="categoryID">
+                                            {section name=j loop=$dropdownSearch}
+                                                <option value="{$dropdownSearch[j].id}">
+                                                    {$dropdownSearch[j].categoryName}
+                                                </option>
+                                            {/section}
+                                        </select>
+                                        <script>document.getElementById('categoryID').value='{$categoryID}';</script>
+                                        <input type="submit" name="button" id="button" value="GO" />
+                                        <input name="s" type="hidden" id="s" value="pages" />
+                                        <input name="r" type="hidden" id="r" value="searchCategory">
+                                    </form>
+                                    <strong>{$groupName|strtoupper}</strong><br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="14%"><strong>Category</strong></td>
+                                <!--<td width="27%"><strong>Status</strong></td>-->
+                                <td width="17%"><strong>Action</strong></td>
+                            </tr>
+                            {section name=i loop=$list}
+                            <tr>
+                                <td>{$list[i].categoryName}</td>
+                                <!--<td>Published</td>-->
+                                <td>
+                                    <a class="addSubPage" href="?s=pages&amp;r=editCategory&amp;id={$list[i].id}">Edit</a>&nbsp;
+                                    <a class="deletePage" href="?s=pages&amp;r=deleteCategory&amp;id={$list[i].id}"
+                                    onclick="return confirm('Tenant in {$list[i].categoryName} category will be deleted. Are you sure ?')">Delete</a>
+                                </td>
+                            </tr>
+                            {/section}
+                        </table>
+                        {$page}
+                        <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                            <br />
+                        </form>
+        </td>
+    </tr>
+</table>

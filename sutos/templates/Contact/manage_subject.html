@@ -1,0 +1,41 @@
+
+<table class="addlist">
+    <tr class="head">
+        <td height="34">
+            <a href="index.php">Dashboard</a> -
+            <a href="?s=contact">Contact</a> - Manage Subject -
+            <a href="?s=contact&amp;r=manageSubject">[New Subject]</a>
+        </td>
+    </tr>
+    <tr>
+        <td height="34"><strong>MANAGE SUBJECT</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%" class="list">
+                            <tr>
+                                <td><strong>Subject</strong></td>
+                                <td><strong>Action</strong></td>
+                            </tr>
+                            {section name=i loop=$list}
+                            <tr>
+                                <td>{$list[i].subject}</td>
+                                <td align="center">
+                                    <a class="addSubPage" href="?s=contact&amp;r=manageSubject&amp;do=edit&amp;id={$list[i].id}">
+                                        Edit
+                                    </a>&nbsp;
+                                    
+                                    <a class="deletePage" href="?s=contact&amp;r=manageSubject&amp;do=delete&amp;id={$list[i].id}">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            {/section}
+                        </table>
+                        {$page}
+                        <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                            <br />
+                        </form>
+        </td>
+    </tr>
+</table>

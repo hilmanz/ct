@@ -1,0 +1,350 @@
+<strong>WHAT'S UP SETTING</strong><br>
+<br>
+<table class="addlist" width="100%" border="0" cellpadding="5" cellspacing="0">
+    <tr class="head">
+        <td height="33"><strong>IMAGE 1</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$slide1.image}" width="200">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 375px, height = 505px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Link to</strong></td>
+                        <td><select name="pageID" id="pageID">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID').value="{$slide1.pageID}";</script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Status</strong>
+                        </td>
+                        <td>
+                            <select name="status1" id="status1">
+                                <option value="1">Publish</option>
+                                <option value="0">Unpublish</option>
+                            </select>
+                            <script>document.getElementById("status1").value=("{$slide1.published}")</script>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="whatsUpSlideshow">
+                            <input name="do" type="hidden" id="do" value="update">
+                            <input name="id" type="hidden" id="id" value="1">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+<br>
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="addlist">
+    <tr class="head">
+        <td class="" height="33"><strong>IMAGE 2</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$slide2.image}" width="200">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 375px, height = 505px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Link to</strong></td>
+                        <td><select name="pageID2" id="pageID2">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID2').value="{$slide2.pageID}";</script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Status</strong>
+                        </td>
+                        <td>{$slide.published}
+                            <select name="status2" id="status2">
+                                <option value="1">Publish</option>
+                                <option value="0">Unpublish</option>
+                            </select>
+                            <script>document.getElementById("status2").value=("{$slide2.published}")</script>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="whatsUpSlideshow">
+                            <input name="do" type="hidden" id="do" value="update">
+                            <input name="id" type="hidden" id="id" value="2">
+                        </td>
+                    </tr>
+                </table>
+        </form></td>
+    </tr>
+</table>
+
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="addlist">
+    <tr class="head">
+        <td height="33"><strong>IMAGE 3</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$slide3.image}" width="200">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 375px, height = 505px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Link to</strong></td>
+                        <td><select name="pageID3" id="pageID3">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID3').value="{$slide3.pageID}";</script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Status</strong>
+                        </td>
+                        <td>
+                            <select name="status3" id="status3">
+                                <option value="1">Publish</option>
+                                <option value="0">Unpublish</option>
+                            </select>
+                            <script>document.getElementById("status3").value=("{$slide3.published}")</script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="whatsUpSlideshow">
+                            <input name="do" type="hidden" id="do" value="update">
+                            <input name="id" type="hidden" id="id" value="3">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="addlist">
+    <tr class="head">
+        <td height="33"><strong>IMAGE 4</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$slide4.image}" width="200">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 375px, height = 505px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Link to</strong></td>
+                        <td><select name="pageID4" id="pageID4">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID4').value="{$slide4.pageID}";</script>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <strong>Status</strong>
+                        </td>
+                        <td>
+                            <select name="status4" id="status4">
+                                <option value="1">Publish</option>
+                                <option value="0">Unpublish</option>
+                            </select>
+                            <script>document.getElementById("status4").value=("{$slide4.published}")</script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="whatsUpSlideshow">
+                            <input name="do" type="hidden" id="do" value="update">
+                            <input name="id" type="hidden" id="id" value="4">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="addlist">
+    <tr class="head">
+        <td height="33"><strong>IMAGE 5</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <form name="form1" method="post" action="" enctype="multipart/form-data">
+                <table class="addlist" width="577" border="0" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <td>
+                            <strong>
+                                Preview Image
+                            </strong>
+                        </td>
+                        <td>
+                            <img src="../contents/static/thumb_{$slide5.image}" width="200">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>New Image</strong>
+                            <br />
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="file" />
+                            <font color="red">width = 375px, height = 505px</font>
+                            <strong><br /></strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Link to</strong></td>
+                        <td><select name="pageID5" id="pageID5">
+                                {section name=i loop=$group}
+                                <option value="{$group[i].id}">{$group[i].categoryName|stripslashes}</option>
+                                {/section}
+                            </select>
+                            <script>document.getElementById('pageID5').value="{$slide5.pageID}";</script>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <strong>Status</strong>
+                        </td>
+                        <td>
+                            <select name="status5" id="status5">
+                                <option value="1">Publish</option>
+                                <option value="0">Unpublish</option>
+                            </select>
+                            <script>document.getElementById("status5").value=("{$slide5.published}")</script>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" name="button" id="button" value="Save">
+                            <input name="s" type="hidden" id="s" value="article">
+                            <input name="r" type="hidden" id="r" value="whatsUpSlideshow">
+                            <input name="do" type="hidden" id="do" value="update">
+                            <input name="id" type="hidden" id="id" value="5">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>

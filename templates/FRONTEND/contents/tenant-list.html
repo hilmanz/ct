@@ -1,0 +1,109 @@
+
+<div class="banner">
+    {if $banner.file}
+        <img src="contents/banners/{$banner.file}" />
+    {else}
+        <img src="contents/banners/{$rootBanner}" /> <!--kalo banner gak ada di database, select parentnya-->
+    {/if}
+</div>
+<div class="wrapper">
+    <h1 class="titlepage pageNav">
+        <a class="red" href="tenant.php?pid={$pid}">{$categoryName.categoryName}</a>
+    </h1>
+    <div align="right" class="searchTenant">
+        {if $pid eq '8'}<!--explore-->
+
+        {elseif $pid eq '9'}<!--information-->
+            <form method="get">
+                <select name="floor">
+                    {section name=j loop=$list}
+                    <option value="{$list[j].id}">{$list[j].title|stripslashes}</option>
+                    {/section}
+                </select>
+            <input type="submit" value="GO">
+            </form>
+        {else}
+        <form method="get">
+            <select name="content" id="content">
+                {section name=j loop=$searchDetail}
+                    <option value="{$searchDetail[j].id}">{$searchDetail[j].title|stripslashes}</option>
+                {/section}
+            </select>
+            <input type="hidden" name="cid" value="{$categoryName.id}">
+            <script>document.getElementById('content').value='{$categoryName.id}';</script>
+            <input type="submit" value="GO">
+        </form>
+        {/if}
+
+    </div>
+    <div class="content">
+        {if $rootID eq '5'} <!--content explore-->
+            {section name=i loop=$list}
+                {if $list[i].categoryID eq '8'} <!--google map, find us-->
+                    <div class="w500L">
+                        <iframe class="wikimap" src="http://wikimapia.org/#lat=-6.2916672&lon=106.799823&z=17&l=0&ifr=1&m=w" width="520" height="400" frameborder="0"></iframe>
+                    </div>
+                    <div class="w300R">
+                        <h1 class="tenant">{$list[i].title|stripslashes}</h1>
+                        <!--<p><i>Updated : {$list[i].posted_date|date_format:"%d-%m-%y"}</i></p>-->
+                        <p>{if $list[i].detail} {$list[i].detail|stripslashes}{/if}</p>
+                        <img class="imgW220" src="contents/tenant/{$list[i].img}" />
+                    </div>
+                {else} <!--information-->
+                    <div class="w500L">
+                        <a href="tenant.php?floor={$list[i].id}">
+                            <img src="contents/tenant/{$list[i].img}" width="400" />
+                        </a>
+                    </div>
+                    <div class="w300R">
+                        <h1 class="tenant">{$list[i].title|stripslashes}</h1>
+                        <!--<p><i>Updated : {$list[i].posted_date|date_format:"%d-%m-%y"}</i></p>-->
+                        <p>{if $list[i].brief} {$list[i].brief|stripslashes}{/if}</p>
+                    </div>
+                {/if}
+            {/section}
+
+        {else}<!-- if content != explore -->
+            {section name=i loop=$list}
+            <div class="w400L">
+                {if $list[i].detail|stripslashes}
+                <a href="tenant.php?content={$list[i].id}&cid={$list[i].categoryID}">
+                    <img class="imgW170" src="contents/tenant/{$list[i].img}" />
+                </a>
+                {else}
+                    <img class="imgW170" src="contents/tenant/{$list[i].img}" />
+                {/if}
+                <h1 class="tenant">{$list[i].title|stripslashes}</h1>
+                <!--<p><i>Updated : {$list[i].posted_date|date_format:"%d-%m-%y"}</i></p>-->
+                <p>{if $list[i].brief} {$list[i].brief|stripslashes} ...{/if}</p>
+
+                {if $list[i].detail|stripslashes}
+                <a href="tenant.php?content={$list[i].id}&cid={$list[i].categoryID}" class="more">more</a>
+                {/if}
+            </div>
+            {/section}
+       {/if}
+
+        <!--
+        <div class="w400L">
+            <a href="?index=eaton"><img class="imgW170" src="images/dining/eaton_logo.jpg" /></a>
+            <h1 class="tenant">Eaton Bakery and Restaurant</h1>
+            <p>Produk-produk Eaton Bakery &amp; Restaurant menggunakan bahan baku pilihan terbaik dan ditangani oleh tangan-tangan yang handal </p>
+            <a href="?index=eaton" class="more">more</a>
+        </div>
+
+
+        <div class="w400R">
+            <a href="?index=2ndkitchen"><img class="imgW170" src="images/dining/2ndkitchen_logo.jpg" /></a>
+            <h1 class="tenant">2nd Kitchen Indonesian Food</h1>
+            <a href="?index=2ndkitchen" class="more">more</a>
+        </div>
+        -->
+    </div>
+
+
+    <hr class="clear" />
+    <div class="paging" align="right">
+       {$page}
+    </div>
+</div>

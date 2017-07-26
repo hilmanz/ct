@@ -1,0 +1,62 @@
+
+<table class="addlist">
+    <tr class="head">
+        <td height="34"><a href="index.php">Dashboard</a> - Splash Screen - Manage</td>
+    </tr>
+    <tr>
+        <td height="34"> <p><strong>SPLASH SCREEN OBJECT(S)</strong></p></td>
+    </tr>  
+    <tr>
+        <td width="533" valign="top">
+              <table class="addlist">
+                            <tr>
+                                <td width="28%"><strong>Object(s)</strong></td>
+                                <td width="40%"><strong>URL</strong></td>
+                                <td width="15%"><strong>Type</strong></td>
+                                <td width="17%"><strong>Action</strong></td>
+                            </tr>
+                            {section name=i loop=$list}
+                            <tr>
+                                <td>{$list[i].file}</td>
+                                <td><a href="{$list[i].path|stripslashes}" target="_blank">{$list[i].path|stripslashes}</a></td>
+                                <td>{$list[i].type}</td>
+                                <td><a href="?s=splash&amp;r=delete&amp;id={$list[i].id}">Delete</a></td>
+                            </tr>
+                            {/section}
+                        </table>
+               
+                        <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                            <table class="addlist">
+                                <tr>
+                                    <td colspan="2" valign="top"><strong>Upload new Object : </strong>
+                                        <br />
+                                        FILE :
+                                        <input type="file" name="file" id="file" />
+                                        <br />
+                                        URL :
+                                        <input name="path" type="text" id="path" value="http://" size="50" maxlength="255" />
+                                        <br />
+                                        example : 
+                                        <em>http://nama-domain.com/path-to-file/nama-file.pdf</em>
+                                        <br />
+                                        <br />
+                                        <input type="submit" name="button" id="button" value="UPLOAD" />
+                                        <br />
+                                        you can upload a JPEG or SWF file. <br />
+                                        The object must be in 455 x 211 pixels.<br />
+                                        <strong>WARNING :</strong>
+                                        all file names my not have a whitespace!
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="33%">
+                                        <input name="s" type="hidden" id="s" value="splash" />
+                                        <input name="r" type="hidden" id="r" value="upload" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                        </form>
+        </td>
+    </tr>
+</table>

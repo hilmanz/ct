@@ -1,0 +1,26 @@
+Hi,
+
+{$rs.name} has just confirmed payment for Order #{$rs.OrderID}. 
+Here are the details :
+
+Nama : {$rs.name}
+Email : {$rs.email}
+---------------------------------------------------------------------
+No. Rekening : {$rs.account_no}
+Tujuan Transfer : {if $rs.bank eq '1'}BCA{elseif $rs.bank eq '2'}Mandiri{else}Credit Card{/if}
+
+Metode Transfer : {$rs.transfer_method|strtoupper}
+Tanggal Transfer (dd mm YYYY) : {$rs.transfer_date}
+Waktu Transfer HH : MM : SS : {$rs.transfer_time}
+
+Jumlah Pembayaran :IDR . {$rs.amount}
+
+----------------------------------------------------------------------
+
+Please check your bank to verify transfer. 
+
+Click the link below to queue the order for shipping
+http://www.shop-picnic.com/admin/index.php?s=purchaseOrder&r=edit&id={$rs.transactionID}
+
+Thanks,
+SHOP-PICNIC.COM

@@ -1,0 +1,20 @@
+
+<table width="400" border="0" cellpadding="0" cellspacing="0" class="list" >
+    <tr>
+        <td height="34" colspan="2"><a href="index.php">Dashboard</a> - Groupings</td>
+    </tr>
+    <tr class="head">
+        <td height="34" colspan="2"><strong>Group List</strong></td>
+    </tr>
+    <tr>
+        <td width="250"><strong>Name</strong></td>
+        <td height="34"><div align="center"><strong>Total Page</strong></div></td>
+    </tr>
+    {section name=i loop=$list}
+    <tr>
+        <td><a href="?s=article&amp;r=edit_group&amp;groupID={$list[i].groupID}">{$list[i].groupName}</a></td>
+        <td><div align="center"><a href="?s=article&amp;r=list&amp;groupID={$list[i].groupID}">{$list[i].total}</a></div></td>
+    </tr>
+    {/section}
+</table>
+<a class="newGroup" href="?s=article&amp;r=new_group">New Article Group</a>

@@ -1,0 +1,81 @@
+
+<div class="wrapper">
+	<div id="breadcumb" data-role="header" data-theme="f">
+		<h1><a class="blue3" href="?index=explore" data-ajax="false">Whats'up</a> | <a class="blue3" href="whatsUp.php?pid=1" data-ajax="false">Events</a> |
+        {$monthEvent}</h1>
+		<a href="../html/index2.php" data-icon="home" data-iconpos="notext" data-direction="reverse" class="iconHome" data-ajax="false">Home</a>
+	</div><!-- /header -->
+    <div class="searchTenant">
+        <div data-role="fieldcontain">
+        <form method="get" data-ajax="false">
+            <select name="events" id="select-choice-5" data-native-menu="false" data-inline="true" >
+                <option value="January">JANUARY</option>
+                <option value="February">FEBRUARY</option>
+                <option value="March">MARCH</option>
+                <option value="April">APRIL</option>
+                <option value="May">MAY</option>
+                <option value="June">JUNE</option>
+                <option value="JULY">JULY</option>
+                <option value="August">AUGUST</option>
+                <option value="September">SEPTEMBER</option>
+                <option value="October">OCTOBER</option>
+                <option value="November">NOVEMBER</option>
+                <option value="December">DECEMBER</option>
+            </select>
+            <script>document.getElementById('events').value='{$monthEvent}';</script>
+            <input type="submit" value="GO" data-inline="true" >
+        </form>
+        </div>
+    </div>
+    <div id="calendarEvent">
+  	  <div data-role="collapsible" data-iconpos="right" id="viewMonth">
+			<h3>View Event This Month</h3>
+            <ul data-role="listview" data-theme="d" data-divider-theme="d">
+                <li data-role="list-divider">01 - 11 November 2012</li>
+                <li>
+                        <h3>The H Tower</h3>
+                        <p>Masih bingung nyari tempat tinggal yang pas? The H Tower solusinya. Kamu bs lsg tanya-tanya di booth nya di East Atrium Citos..</p>
+                </li>
+                <li data-role="list-divider">02 - 04 November 2012</li>
+                <li>
+                        <h3>Bazaar produk UKM </h3>
+                        <p>Buat kalian yang hobi belanja, jangan lupa datang ke bazaar produk UKM, km bs dapetin produk-produk buatan para pengrajin lokal yg pastinya menarik & berkualitas!</p>
+                </li>
+                <li data-role="list-divider">17 November 2012</li>
+                <li>
+                        <h3>Saturday Night Live</h3>
+                        <p>Bosen Sat Night Cuma di rumah aja? Gabung di acara Saturday Night Live dan ikutan photo competitionnya!! 
+                        Menangkan Samsung Galaxy Note dan hadiah-hadiah menarik lainnya!!! 
+                        More info: Twitter: <a  href="http://www.twitter.com/citosjakarta" target="_blank">@citosjakarta,</a> 
+                        FB: <a  href="http://www.facebook.com/pages/Townsquare-Cilandak/254955084578925" target="_blank">Townsquare Cilandak</a></p>
+                </li>
+            </ul>
+	  </div><!-- End #viewMonth -->
+    </div><!-- End #calendarEvent -->
+    <div class="content">
+		<ul data-role="listview">
+                {if $list}
+                {section name=i loop=$list}
+                    <li>
+                        <a href="whatsUp.php?contentDetail={$list[i].id}&cid={$list[i].categoryID}" data-ajax="false">
+                            <div class="ui-li-thumb"><img src="http://townsquare.co.id/html/contents/article/{$list[i].img}" /></div>
+                            <div class="entry">
+                            <h3>{$list[i].title|stripslashes}</h3>
+                            <p>{$list[i].brief|stripslashes}</p>
+                            </div>
+                        </a>
+                    </li>
+                {/section}
+                {else}
+                    <li>
+                        <a href="" data-ajax="false">
+                   			 <h3>  NO EVENTS HELD THIS MONTH</h3>
+                        </a>
+                    </li>
+                {/if}
+		</ul>
+    </div>
+    <div class="paging" align="right">
+       {$page}
+    </div>
+</div>

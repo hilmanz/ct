@@ -1,0 +1,10 @@
+[05-Sep-2010 03:13:29] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[05-Sep-2010 14:59:18] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[06-Sep-2010 05:06:28] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[22-Sep-2010 13:43:44] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[10-Oct-2010 09:02:43] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[12-Oct-2010 09:15:13] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[12-Oct-2010 20:41:25] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[20-Nov-2010 15:54:56] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[21-Nov-2010 04:23:32] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11
+[21-Nov-2010 18:19:06] PHP Fatal error:  Call to a member function _get_plugin_filepath() on a non-object in /home/townsqua/public_html/sutos/engines/Smarty/plugins/modifier.date_format.php on line 11

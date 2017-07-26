@@ -1,0 +1,43 @@
+<div class="banner">
+    <img src="contents/tenant/{$list.bannerImg}" />
+</div>
+<div class="wrapper">
+    <h1 class="titlepage pageNav"><a class="red" href="tenant.php?pid={$pid}">{$categoryName.categoryName}</a> | {$list.title|stripslashes}</h1>
+    
+    <div align="right" class="searchTenant">
+        <form method="get">
+            <select name="content">
+                {section name=j loop=$searchDetail}
+                    <option value="{$searchDetail[j].id}">{$searchDetail[j].title|stripslashes}</option>
+                {/section}
+            </select>
+            <input type="hidden" name="cid" value="{$categoryName.id}">
+            <input type="submit" value="GO">
+        </form>
+    </div>
+
+    <div class="content">
+        <h1 class="title detail">{$list.title|stripslashes}</h1>
+        <!--<p><i>Updated : {$list.posted_date|date_format:"%d-%m-%y"}</i></p>-->
+        {if $list.details|stripslashes}
+        <p>{$list.details|stripslashes}</p>
+
+
+        <p><strong>Share To</strong></p>
+
+        <a name="fb_share" type="icon_link" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Ftownsquare.co.id/sutos/html%2Ftenant.php?content={$list.id}&amp;cid={$pid}" target="_blank">
+            <img src="contents/images/facebook.gif">
+        </a>
+
+        <a href="http://twitter.com/home?status=I+heart+this+{$list.description|stripslashes|htmlentities|urlencode}+at+http://townsquare.co.id/sutos/html/tenant.php?content={$list.id}&amp;cid={$pid}" title="Click to share this post on Twitter" target="_blank" >
+            <img src="contents/images/twitter.gif">
+        </a>
+        {else}
+        This Tenant Contain No Detail..
+        {/if}
+
+    </div>
+
+    
+    <hr class="clear" />
+</div>

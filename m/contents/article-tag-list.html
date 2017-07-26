@@ -1,0 +1,58 @@
+
+<div id="banner">
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+            <img src="http://townsquare.co.id/html/contents/banners/{$banner.file}" />
+        </li>
+      </ul>
+    </div><!-- end /flexslider -->
+</div><!-- end #banner -->
+<div class="wrapper">
+	<div id="breadcumb" data-role="header" data-theme="f">
+		<h1><a class="blue3" href="whatsUp.php" data-ajax="false">Whats'up</a> | {$categoryName} | {$month}</h1>
+		<a href="../html/index2.php" data-icon="home" data-iconpos="notext" data-direction="reverse" class="iconHome" data-ajax="false">Home</a>
+	</div><!-- /header -->
+    <div class="searchTenant">
+        <div data-role="fieldcontain">
+            <form method="get" action="landingTag.php" data-ajax="false">
+                <input type="hidden" name="pid" value="{$categoryID}">
+                <select name="events"  id="select-choice-5" data-native-menu="false" data-inline="true" >
+                    <option value="January">JANUARY</option>
+                    <option value="February">FEBRUARY</option>
+                    <option value="March">MARCH</option>
+                    <option value="April">APRIL</option>
+                    <option value="May">MAY</option>
+                    <option value="June">JUNE</option>
+                    <option value="JULY">JULY</option>
+                    <option value="August">AUGUST</option>
+                    <option value="September">SEPTEMBER</option>
+                    <option value="October">OCTOBER</option>
+                    <option value="November">NOVEMBER</option>
+                    <option value="December">DECEMBER</option>
+                </select>
+                <script>document.getElementById('events').value='{$categoryNameSelected}';</script>
+                <input type="submit" value="GO" data-inline="true" >
+            </form> 
+        </div>
+    </div>
+    <div class="content">
+        {if $photo}
+        <img src="http://townsquare.co.id/html/contents/article/{$photo}" name="imageid" border="0" class="annotated" id="imageid" />
+        <br /><br /><br /><br />
+          <ul data-role="listview">
+        {section name=i loop=$photoTagName}
+            <li>
+                <a data-ajax="false" class="{$photoTagName[i].title}" href="javascript:q=(document.location.href);void(window.open('http://townsquare.co.id/html/print.php?name={$photoTagName[i].url|stripslashes}&amp;categoryID={$photoTagName[i].categoryID}&amp;url='+escape(q),'','resizable,location,menubar,toolbar,scrollbars,status,height=445,width=600,left=350,top=590,screenX=100,screenY=100'));">
+                 {$photoTagName[i].title}
+                </a>
+            </li>
+        {/section}
+         </ul>
+        {else}
+            <h1>
+                No Updates On {$categoryName} This Month
+            </h1>
+        {/if}
+    </div>
+</div>

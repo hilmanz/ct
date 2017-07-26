@@ -1,0 +1,78 @@
+
+<div class="calendar">
+    {if $banner.file}
+    <img src="contents/banners/{$banner.file}" />
+    {else}
+    <img src="contents/article/{$list.bannerImg}" />
+    {/if}
+</div>
+
+
+<div class="wrapper">
+    <h1 class="titlepage pageNav">
+        {$month.events}
+    </h1>
+
+    <h1 class="titlepage pageNav">
+        <a class="blue3" href="?index=explore">Whats'up</a> |
+
+        {if $parent.id}
+        <a href="whatsUp.php?pid={$parent.id}">{$parent.categoryName}</a> |
+        {/if}
+
+        {if $rootName.id eq '1'}
+        <a href="whatsUp.php?pid={$rootName.id}">{$rootName.categoryName}</a> |
+        {else $rootName.id}
+        <a href="whatsUp.php?content={$rootName.id}&cid={$rootName.parentID}">{$rootName.categoryName}</a> |
+        {/if}
+
+
+        <span class="titleDetail">{$list.title|stripslashes}</span>
+
+    </h1>
+
+
+    <div align="right" class="searchTenant">
+        
+        <form method="get">
+            <select name="contentDetail" id="contentDetail">
+                {section name=j loop=$searchDetail}
+                    <option value="{$searchDetail[j].id}">{$searchDetail[j].title|stripslashes}</option>
+                {/section}
+            </select>
+            <script>document.getElementById('contentDetail').value='{$list.id}';</script>
+            <input type="hidden" name="cid" value="{$categoryName.id}">
+            <input type="submit" value="GO">
+        </form>
+    </div>
+
+    <div class="content">
+        {if $list.details}
+        {if $rootName.id eq '3'} <!--about us-->
+        <img class="imgLeft" src="contents/article/{$list.img}" />
+        {/if}
+        <h1 class="tenant">{$list.title|stripslashes}</h1>
+        <!--<p><i>Updated : {$list.posted_date|date_format:"%d-%m-%y"}</i></p>-->
+        <p>{$list.details|stripslashes}</p>
+
+        <p><strong>Share To</strong></p>
+
+        <a name="fb_share" type="icon_link" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Ftownsquare.co.id/sutos/html%2FwhatsUp.php?contentDetail={$list.id}&amp;rid={$list.rid}&cid={$contentDetailId}" target="_blank">
+            <img src="contents/images/facebook.gif">
+        </a>
+
+        <a href="http://twitter.com/home?status=I+heart+this+{$list.description|stripslashes|htmlentities|urlencode}+at+http://townsquare.co.id/sutos/html/whatsUp.php?contentDetail={$list.id}&amp;rid={$list.rid}&cid={$contentDetailId}" title="Click to share this post on Twitter" target="_blank" >
+            <img src="contents/images/twitter.gif">
+        </a>
+        {else}
+        <a href="whatsUp.php?contentDetail={$list.id}">
+            {if $rootName.id} <!--about us-->
+            <img class="imgLeft" src="contents/article/{$list.img}" />
+            {else}
+            <img class="imgW400 imgLeft" src="contents/article/{$list.img}" />
+            {/if}
+        </a>
+        {/if}
+    </div>
+    <hr class="clear" />
+</div>

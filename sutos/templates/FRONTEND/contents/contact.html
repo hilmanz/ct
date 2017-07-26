@@ -1,0 +1,96 @@
+
+
+{literal}
+<script type="text/javascript">
+function alertselected(selectobj){
+    var x = document.getElementById("subject").value;
+ //alert(x)
+ return x;
+}
+</script>
+{/literal}
+<div class="banner">
+    <img src="contents/banners/{$banner.file}" />
+</div>
+<div class="wrapper">
+    <h1 class="titlepage pageNav"><a class="blue4" href="?index=git">Get In Touch</a></h1>
+    <div class="content">
+
+        <div class="w400L" style="display:table;">
+            <img src="images/git_img.jpg" />
+            <p style="padding-left:20px"><strong>PT GRAHA MEGARIA SURABAYA</strong><br />
+                Townsquare Surabaya 2nd Floor<br />
+                Jl. Adityawarman No.55<br />
+                Surabaya - 60242<br />
+                Telephone : (62-31) 561 0222 <br />
+            Fax : (62-31) 653 0202</p>
+
+        </div>
+
+    
+        <div class="w400R">
+            <form action="contact.php?do=send" method="post" class="formpage">
+                <div class="row">
+                    <label for="textinput">Name:</label>
+                    <input type="text" id="name" name="name" size="30" />
+                </div>
+                <div class="row">
+                    <label for="textinput">Phone:</label>
+                    <input type="text" id="phone" name="phone" size="30" />
+                </div>
+                <div class="row">
+                    <label for="textinput">Email:</label>
+                    <input name="email" type="text" id="email" size="30" />
+                </div>
+                <div class="row">
+                    <label for="textareainput">Address:</label>
+                    <textarea id="address" name="address" rows="2" cols="30"></textarea>
+                </div>
+                <div class="row">
+                    <label class="choose" for="textinput">Subject:</label>
+                    <select size="1" id="subject" name="subject" onChange="alertselected(this)">
+                        {section name=i loop=$category}
+                        <option value="{$category[i].id}">{$category[i].subject}</option>
+                        {/section}
+                    </select>
+                </div>
+                <!--
+                <div class="row">
+                    <label class="choose" for="textinput">Send To</label>
+                    <select size="1" id="staff" name="staff" onchange="alertselected(this)">
+                        {section name=j loop=$staff}
+                        <option value="{$staff[j].id}" selected>{$staff[j].staff_name}</option>
+                        {/section}
+                    </select>
+                </div>
+                -->
+                <div class="row">
+                    <label for="textareainput">Comments:</label>
+                    <textarea id="message" name="message" rows="2" cols="30"></textarea>
+                </div>
+
+                {if $msg}
+                <div class="row" align="center">
+                    <label for="textareainput">&nbsp;</label>
+                    <font style="color:red">{$msg}</font>
+                </div>
+                {/if}
+                
+                <div class="row">
+                    <input type="submit" value="Submit" class="submitContact" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <hr class="clear" />
+</div>
+
+{literal}
+<script>
+    function getStaff(param){
+        var staff = document.getElementById("staff").value;
+        alert(staff);
+    }
+</script>
+{/literal}

@@ -1,0 +1,113 @@
+
+
+<div class="calendar">
+	{if $banner.file}
+    <img src="contents/banners/{$banner.file}" />
+    	{else}
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="FlashID" width="960" height="290" id="FlashID">
+    <param name="movie" value="flash/april.swf" />
+        <param name="quality" value="high" />
+        <param name="wmode" value="opaque" />
+        <param name="swfversion" value="9.0.45.0" />
+        <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don�t want users to see the prompt. -->
+        <param name="expressinstall" value="js/expressInstall.swf" />
+        <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+              <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="flash/april.swf" width="960" height="290">
+            <!--<![endif]-->
+            <param name="quality" value="high" />
+            <param name="wmode" value="opaque" />
+            <param name="swfversion" value="9.0.45.0" />
+            <param name="expressinstall" value="js/expressInstall.swf" />
+            <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+            <div>
+                <h4 align="center" style="color:#FFFFFF">Content on this page requires a newer version of Adobe Flash Player.</h4>
+                <p align="center"><a href="http://www.adobe.com/go/getflashplayer"><img src="images/get_flash_player.gif" alt="Get Adobe Flash player" width="112" height="33" /></a></p>
+            </div>
+            <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+    </object>
+  {/if}</div>
+
+<div class="wrapper">
+    
+    <h1 class="titlepage pageNav"><a class="blue3" href="whatsUp.php">Whats'up</a>
+    | {$categoryName} | {$month}</h1>
+
+    <div align="right" class="searchTenant">
+        
+            <form method="get" action="landingTag.php">
+                <input type="hidden" name="pid" value="{$categoryID}">
+                <select name="events" id="events">
+                    <option value="January">JANUARY</option>
+                    <option value="February">FEBRUARY</option>
+                    <option value="March">MARCH</option>
+                    <option value="April">APRIL</option>
+                    <option value="May">MAY</option>
+                    <option value="June">JUNE</option>
+                    <option value="JULY">JULY</option>
+                    <option value="August">AUGUST</option>
+                    <option value="September">SEPTEMBER</option>
+                    <option value="October">OCTOBER</option>
+                    <option value="November">NOVEMBER</option>
+                    <option value="December">DECEMBER</option>
+                </select>
+                <script>document.getElementById('events').value='{$categoryNameSelected}';</script>
+                <input type="submit" value="GO">
+            </form> 
+            
+       
+    </div>
+    <div class="content">
+        
+        <div class="rowArticle">
+            <div style="position:relative;">
+                <!-- making selection area -->
+
+                {if $photo}
+                <img src="contents/article/{$photo}" name="imageid" border="0" class="annotated" id="imageid" />
+                {section name=i loop=$photoTagName}
+                    <style type='text/css'>
+                        #map a.{$photoTagName[i].title}
+                        {literal}
+                        {
+                        {/literal}
+
+                            top:{$photoTagName[i].y1}px;
+                            left:{$photoTagName[i].x1}px;
+                            width:{$photoTagName[i].width}px;
+                            height:{$photoTagName[i].height}px;
+
+                        {literal}
+                        }
+                        {/literal}
+                    </style>
+                    <!-- tag result element -->
+                    <ul id="map">
+                        <li>
+
+                            <a class="{$photoTagName[i].title}" href="javascript:q=(document.location.href);void(window.open('http://townsquare.co.id/html/print.php?name={$photoTagName[i].url|stripslashes}&amp;categoryID={$photoTagName[i].categoryID}&amp;url='+escape(q),'','resizable,location,menubar,toolbar,scrollbars,status,height=445,width=600,left=350,top=590,screenX=100,screenY=100'));">
+                                <span><b>{$photoTagName[i].title}</b></span>
+                            </a>
+
+                            <!-- IE not support for this js action onclick(window.open) 01-04-2010, link
+                            <a class="{$photoTagName[i].title}" href="#" onClick="window.open('print.php?name={$photoTagName[i].url|stripslashes|htmlentities|urlencode}&amp;categoryID={$photoTagName[i].categoryID}','PRINT/SHARE','width=393,height=300,left=430,top=590,screenX=300,screenY=300')">
+                                <span><b>{$photoTagName[i].title}</b></span>
+                            </a> -->
+
+                        </li>
+                    </ul>
+                {/section}
+                {else}
+                    <h1>
+                        No Updates On {$categoryName} This Month
+                    </h1>
+                    
+                {/if}
+            </div>
+        </div>
+       
+    </div>
+    <hr class="clear" />
+</div>

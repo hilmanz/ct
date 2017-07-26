@@ -1,0 +1,67 @@
+
+
+<table width="700" border="0" cellpadding="0" cellspacing="0" class="list" >
+    <tr>
+        <td height="34" colspan="4">
+            <a href="index.php">Dashboard</a> -
+            {if $groupName.groupName}
+                {$groupName.groupName}
+            {elseif $tagName.tag eq ''}
+                Articles View
+            {else}
+                Search Tag Result :
+                {if $tagName.tag}
+                    {$tagName.tag}
+                {else}
+                    NO RESULT FOUND
+                {/if}
+            {/if}
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Page(s)</strong></td>
+        <td><strong>Group</strong></td>
+        <!--<td><strong>Status</strong></td>-->
+        <td><strong>Action</strong></td>
+    </tr>
+    {section name=i loop=$list}
+    <tr>
+        <td><a href="?s=article&r=edit&id={$list[i].id}&amp;parentID={$list[i].parentID}">{$list[i].title|stripslashes}</a></td>
+        <td><a href="?s=article&r=list&groupID={$list[i].groupID}">{$list[i].groupName}</a></td>
+        <!--<td>{if $list[i].status eq '1'}Published{else}Draft{/if}</td>-->
+        <td>
+            {if $list[i].level <> '3'}
+                <a class="addSubPage" href="?s=article&r=new&parentID={$list[i].id}&amp;groupID={$list[i].groupID}">
+                    Add Sub Page
+                </a>
+            {/if}
+            {if $list[i].parentID <> '0'}
+                <a class="deletePage" href="javascript:;" onclick="doConfirm('{$list[i].id}');return false;">
+                    Delete Page
+                </a>
+            {/if}
+        </td>
+    </tr>
+    {/section}
+    
+</table>
+<div class="tag">
+    <strong>Tags : </strong><br/>
+    {section name=j loop=$tags}
+        <a href="?s=article&tag={$tags[j].tag}">{$tags[j].tag}</a>,
+    {/section}
+</div>
+<script>
+    {literal}
+    function doConfirm(id){
+        if(confirm("By removing this page, all the pages under this page will be inaccessible. Are you sure to delete this Page ?")){
+    {/literal}
+            var s = "?s=article&r=delete&id="+id;
+    {literal}
+            document.location=s;
+        }else{
+            return false;
+        }
+    }
+    {/literal}
+</script>

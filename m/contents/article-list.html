@@ -1,0 +1,74 @@
+<div id="banner">
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+         <img src="http://townsquare.co.id/html/contents/banners/{$banner.file}" />
+        </li>
+      </ul>
+    </div><!-- end /flexslider -->
+</div><!-- end #banner -->
+<div class="wrapper">
+	<div id="breadcumb" data-role="header" data-theme="f">
+		<h1><a href="whatsUp.php?pid={$rootName.id}" data-ajax="false">{$rootName.categoryName}</a> |
+        {$monthEvent}</h1>
+		<a href="../html/index2.php" data-icon="home" data-iconpos="notext" data-direction="reverse" class="iconHome" data-ajax="false">Home</a>
+	</div><!-- /header -->
+    <div class="searchTenant">
+        <div data-role="fieldcontain">
+        <form method="get" data-ajax="false">
+            <input type="hidden" name="content" value="{$categoryName.id}">
+            <input type="hidden" name="cid" value="{$rootName.id}">
+            <select name="month" id="select-choice-5" data-native-menu="false" data-inline="true" >
+                <option value="January">JANUARY</option>
+                <option value="February">FEBRUARY</option>
+                <option value="March">MARCH</option>
+                <option value="April">APRIL</option>
+                <option value="May">MAY</option>
+                <option value="June">JUNE</option>
+                <option value="JULY">JULY</option>
+                <option value="August">AUGUST</option>
+                <option value="September">SEPTEMBER</option>
+                <option value="October">OCTOBER</option>
+                <option value="November">NOVEMBER</option>
+                <option value="December">DECEMBER</option>
+            </select>
+            <script>document.getElementById('month').value='{$monthEvent}';</script>
+            <input type="submit" value="GO" data-inline="true" >
+        </form>
+        </div>
+    </div>
+    <div class="content">
+		<ul data-role="listview">
+                {if $list}
+                {section name=i loop=$list}
+                    <li>
+                        <a href="whatsUp.php?contentDetail={$list[i].id}&cid={$list[i].categoryID}" data-ajax="false">
+                       		{if $list[i].detail}
+                            <div class="ui-li-thumb"><img src="http://townsquare.co.id/html/contents/article/{$list[i].img}" /></div>
+                            {else}
+                                {if $rootName.id eq '3'} <!--about us-->
+                                 <div class="ui-li-thumb"><img class="imgLeft" src="http://townsquare.co.id/contents/article/{$list[i].img}" /></div>
+                                {else}
+                                 <div class="ui-li-thumb"><img class="imgW400 imgLeft" src="http://townsquare.co.id/contents/article/{$list[i].img}" /></div>
+                                {/if}
+                            {/if}
+                            <div class="entry">
+                            <h3>{$list[i].title|stripslashes}</h3>
+                            <p>{$list[i].brief|stripslashes}</p>
+                            </div>
+                        </a>
+                    </li>
+                {/section}
+                {else}
+                    <li>
+                        <a href="" data-ajax="false">
+                   			 <h3>No Updates On {$categoryName.categoryName} This Month</h3>
+                        </a>
+                    </li>
+                {/if}
+		</ul>
+    </div>
+    <div class="paging" align="right">
+       {$page}
+    </div>
+</div>

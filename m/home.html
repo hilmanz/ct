@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+        <title>TownSquare Cilandak, Townsquare Surabaya</title>
+        <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+        <meta name="robots" content="noarchive" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <meta name="description" content="{$META_TITLE.title|stripslashes}"/>
+        <meta name="title" content="Town Square,{$META_TITLE.title|stripslashes}"/>
+        <meta name="keywords" content="Cilandak Town Square, Surabaya Town Square" />
+        <meta name="author" content="acitjazz" />
+        <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.1.0.css" />
+        <link rel="stylesheet"  href="css/citosmobile.css" />
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+        <script src="js/jquery.js"></script>
+        <!-- Modernizr -->
+        <script src="js/modernizr.js"></script>
+        <script src="docs/_assets/js/jqm-docs.js"></script>
+        <script src="js/jquery.mobile-1.1.0.js"></script>
+        <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script defer src="js/jquery.flexslider.js"></script>
+          {literal}
+            <script type="text/javascript">
+            
+                jQuery(document).ready(function($) {
+                    $('#replace img').attr('src',function(index,attr){
+                          return attr.replace('contents/images','http://townsquare.co.id/html/contents/images');
+                    });
+                    $('.floor td a').attr('data-ajax', 'false');
+
+                });
+            </script>
+          <!-- FlexSlider -->
+          <script type="text/javascript">
+            $(window).load(function(){
+              $('.flexslider').flexslider({
+                animation: "slide",
+                start: function(slider){
+                  $('body').removeClass('loading');
+                }
+              });
+            });
+          </script>
+          {/literal}
+    </head>
+    <body>
+        <div id="main" data-role="page" class="type-home">
+            <div data-role="content">
+                    <div id="top" class="gradred">
+                        <ul class="navtop">
+                            <li><a href="../html/index2.php" data-ajax="false">Citos</a>|</li>
+                            <li><a href="../sutos/html" data-ajax="false">Sutos</a>|</li>
+                            <li><a href="http://www.tssuites.com/" target="_blank">TS Suites</a></li>
+                        </ul>
+                        <a href="http://www.twitter.com/citosjakarta" class="twitter" target="_blank">&nbsp;</a>
+                        <a href="http://www.facebook.com/pages/Townsquare-Cilandak/254955084578925" class="facebook" target="_blank">&nbsp;</a>
+                    </div><!-- end #top -->
+                    <div id="container">
+         	   		 {$mainContent}
+                    </div>
+                    <div id="logoBar">
+                		<a id="logo">&nbsp;</a>
+                    </div>
+            </div><!-- end role content -->
+            <div data-role="footer" class="footer-docs gradred" data-theme="c">
+                <div class="footer">
+                    <p class="copy">©2010 www.townsquare.co.id</p>
+                </div><!-- end .footer -->
+            </div>
+        </div><!-- end #main -->
+          {literal}
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-867847-21']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+          {/literal}
+    </body>
+</html>
